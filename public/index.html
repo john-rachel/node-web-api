@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width-device-width, initial-scale-1.0">
+<meta http-equiv="X-UA-Compatible" content="ie-edge">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+<title>Service Details</title>
+</head>
+<body>
+    <h3> The below table displays the list of services and its status </h3>
+
+<div class="container">
+
+    <table class="table table-stripped">
+        <tbody id="data">
+        <thead> <tr>
+        <th>Version</th>
+        <th>Env</th>
+        <th>Service</th>
+        <th>Status</th>
+        </tr>
+    </thead>
+        </tbody>
+
+</div>
+    </table>    
+    <script>
+        fetch("http://localhost:8080/data").then(
+            res=>{
+                res.json().then(
+                    data=>{
+                        console.log(data);
+                        if(data.length>0){
+                            var temp="";
+
+                            //--- start loop
+                            data.forEach((u) => {
+                                temp += "<tr>";
+                                temp += "<td>" + u.version+"</td>";
+                                temp += "<td>" + u.env+"</td>";
+                                temp += "<td>" + u.service+"</td>";
+                                temp += "<td>" + u.status+"</td>";
+                                
+                            })
+
+                            //--- close loop
+                            document.getElementById("data").innerHTML = temp;
+                        }
+                    }
+                )
+            }
+        )
+    </script>
+</body>
+</html>
+

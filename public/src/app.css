@@ -1,0 +1,19 @@
+.table-table-stripped {
+    min-width: 400px;
+    max-width: 1000px;
+    font-size: medium;
+    font-family:'Quicksand', sans-serif;
+}
+.tabletable-stripped{
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0,0, 0.2);
+    border-bottom: 2px solid green;    
+}
+.tabletable-stripped thead tr{
+    background-color: green;
+}
+.table-table-stripped tbody tr:nth-of-type(even){
+    background: #eeeeee;
+}
+
